@@ -223,7 +223,7 @@ footer .team span{background:var(--card);border:1px solid var(--line);padding:6p
   <div class="wrap">
     <div class="eyebrow">Ask anything</div>
     <h2 class="sec">Type or pick a question</h2>
-    <p class="lede">Every answer is drawn straight from the project data — with a chart and linked sources. Turn on <b>Beginner mode</b> above for plain-language explanations.</p>
+    <p class="lede">Every answer is drawn straight from the project data — with a chart and linked sources. Turn on <b>Beginner mode</b> above for simple words explanations.</p>
     <div class="searchbox"><span class="ic">🔎</span><input id="search" placeholder="e.g. Why did oil spike? What is the dollar's share? Is gold a good investment?" oninput="filterQ()"></div>
     <div class="chips" id="cats"></div>
     <div class="qgrid" id="qlist"></div>
@@ -383,7 +383,7 @@ function filterQ(){
 function answer(id){
   const q=Q.find(x=>x.id===id);if(!q)return;
   const bodyText = beginner
-    ? `<div class="simple-tag">${E.leaf} In plain words</div><div class="body simple">${glossify(q.s||q.a)}</div><div class="body" style="margin-top:12px;color:var(--mut);font-size:14px">${glossify(q.a)}</div>`
+    ? `<div class="simple-tag">${E.leaf} In simple words</div><div class="body simple">${glossify(q.s||q.a)}</div><div class="body" style="margin-top:12px;color:var(--mut);font-size:14px">${glossify(q.a)}</div>`
     : `<div class="body">${glossify(q.a)}</div>`;
   const hasChart = q.c && q.c!=='none';
   const res=(q.res||[]).map(r=>{const h=RES_LINKS[r]||'#';return `<a href="${h}" onclick="event.preventDefault();gotoRes('${h}')">${E.link} ${r}</a>`}).join('');
